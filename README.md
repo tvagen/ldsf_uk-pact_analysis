@@ -22,3 +22,15 @@ install.packages("languageserver")
 
 _(We will install additional libraries during the workshop as needed.)_
 
+## What will you learn in the workshop?
+We will cover a number of topics, including:
+- Introduction to R and Quarto
+- Quarto notebooks
+- Loading LDSF data into R
+- Data exploration and visualization
+        - Summary statistics
+        - Data visualization using ggplot2
+        - Mapping data using leaflet
+- Statistical analysis of LDSF data using mixed-effects models
+
+All of the above exercises will be hands-on and conducted in Quarto, which is a great tool for reproducible research. Quarto can be used for report writing, data analysis, and creating presentations. It is a versatile tool that can be used for a variety of tasks.
