@@ -19,6 +19,10 @@ a) Open VS Code and navigate to the Extensions tab on the left sidebar. Search f
 
 b) Open R and install the languageserver package by running the following command in the R console:
 
+![How to start the R console in the terminal within VS Code.](figs/vs_code_terminal_R.jpg)
+
+Once R is started in the terminal, run the following command to install the languageserver package:
+
 ```R
 install.packages("languageserver")
 ```
