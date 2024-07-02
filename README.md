@@ -11,9 +11,11 @@ We will be working in _R Statistics_ for the analysis of LDSF data. The R progra
 3. Install Quarto from the [Quarto website](https://quarto.org/). Quarto is a document processing tool that allows you to write documents in markdown and R code. We will be using Quarto withon VS Code to write our reports and analyses.
 
 #### In addition we will need to install the following:
-We will cover the below topics at the start of the workshop, so don't worry if you have not completed these steps ahead of the workshop. We will help you get set up. If you feel comfortable installing the software on your own, please go ahead and follow theese steps:
+We will cover the below topics at the start of the workshop, so don't worry if you have not completed these steps ahead of time. We will help you get set up. If you feel comfortable installing the below on your own, please go ahead and follow these steps:
 
 a) Open VS Code and navigate to the Extensions tab on the left sidebar. Search for and install the [R extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=REditorSupport.r).
+
+![The VS Code Extensions tab](figs/vs_code_extensions.jpg)
 
 b) Open R and install the languageserver package by running the following command in the R console:
 
