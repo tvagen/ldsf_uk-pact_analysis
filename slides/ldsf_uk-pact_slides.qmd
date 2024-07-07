@@ -1,0 +1,45 @@
+---
+title: "LDSF Data Analysis Workshop"
+subtitle: "UK-PACT"
+format: revealjs
+parallax-background-image: figs/drone_taita_chawia.jpg
+parallax-background-size: "2500px 1900px"
+parallax-background-horizontal: 10
+parallax-background-vertical: 5
+---
+
+## We will be working with a few tools
+
+![](figs/VS_Code_Quarto_R.jpg)
+
+## Download links {background-color="black"}
+
+:::: {.columns}
+::: {.column width="25%"}
+![https://quarto.org](figs/qr_quarto.jpg)
+:::
+::: {.column width="40%"}
+![https://code.visualstudio.com](figs/qr_vscode.jpg)
+:::
+::: {.column width="35%"}
+![https://www.r-project.org](figs/qr_r.jpg)
+:::
+::::
+
+## Getting started with VS Code
+
+![The VS Code user interface (UI)](figs/vs_code_ui.jpg)
+
+## Installing the Quarto extension
+
+![The Quarto extension in the VS Code marketplace](figs/vs_code_quarto.jpg)
+
+## Installing the R Statistics extension
+
+![The R extension in the VS Code marketplace](figs/vs_code_r.jpg)
+
+## Getting started with R in VS Code {background-image="figs/vs_code_r_terminal.jpg"}
+
+## Getting started with R in VS Code {background-image="figs/vs_code_r_terminal_run.jpg"}
+
+If you see this we are all set!
