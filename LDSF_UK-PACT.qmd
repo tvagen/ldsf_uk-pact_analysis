@@ -3,3 +3,19 @@ title: "LDSF data analysis, UK-PACT"
 format: html
 ---
 
+## Introduction
+This document is a notebook with documentation and code for the LDSF data analysis workshop in Voi (July 9 to 12, 2024).
+
+## Load the libraries we will use 
+```{r}
+library(dplyr)
+library(ggplot2)
+library(leaflet)
+```
+
+## Load data
+
+```{r}
+read.csv("data/ldsf/ldsf_data_uk-pact.csv")
+```
+

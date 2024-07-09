@@ -69,6 +69,14 @@ If you see this we are all set!
 
 ## In the R console, let's install the languageserver package {background-image="figs/vs_code_r_languageserver.jpg"}
 
+## {background-color="white"}
+
+1. install.packages("dplyr")
+2. install.packages("ggplot2")
+3. install.packages("leaflet")
+
+table_ldsf <- read.csv("data/ldsf_data_uk-pact.csv")
+
 ## Now to Quarto {background-color="black"}
 
 :::: {.columns}
