@@ -16,6 +16,35 @@ library(leaflet)
 ## Load data
 
 ```{r}
-read.csv("data/ldsf/ldsf_data_uk-pact.csv")
+table_ldsf <- read.csv("data/ldsf/ldsf_data_uk-pact.csv")
+```
+
+## Data exploration
+
+1. We use dplyr to do some simple grouping and to summarise the data.
+2. We pass the summarised data into ggplot2 to create a plot.
+
+### Number of plots by site
+```{r}
+table_ldsf |>
+    group_by(site) |>
+    summarise(n = n())
+```
+
+```{r}
+table_ldsf |>
+    group_by(site) |>
+    summarise(n = n()) |>
+    ggplot() +
+    geom_col(aes(x = site, y = n, fill=site))
+```
+
+## Erosion
+```{r}
+table_ldsf |>
+    group_by(site, cluster) |>
+    summarise(erosion = sum(severeero)) |>
+    ggplot() +
+    geom_boxplot(aes(x = site, y = erosion)
 ```
 
