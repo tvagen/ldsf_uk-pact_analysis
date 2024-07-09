@@ -30,6 +30,29 @@ parallax-background-vertical: 5
 
 ![The VS Code user interface (UI)](figs/vs_code_ui.jpg)
 
+## Setting up our project folder and opening it in VS Code {background-color="white"}
+
+1. Create a folder on your computer - call it **LDSF_UK-PACT**
+2. Go back to quarto and select _File/Open Folder..._"
+3. Navigate to the folder you just created
+4. Open this folder in VS Code
+
+## {background-color="white"}
+
+![VS Code with your project folder open.](figs/vs_code_project_folder.jpg)
+
+## Create a folder for the LDSF data
+
+![](figs/vs_code_create_folder.jpg)
+
+## Download the LDSF data to your data folder {background-color="black"}
+
+Navigate to: 
+
+https://github.com/tvagen/ldsf_uk-pact_analysis
+
+![](figs/github_repo.jpg)
+
 ## Installing the Quarto extension
 
 ![The Quarto extension in the VS Code marketplace](figs/vs_code_quarto.jpg)
@@ -43,3 +66,25 @@ parallax-background-vertical: 5
 ## Getting started with R in VS Code {background-image="figs/vs_code_r_terminal_run.jpg"}
 
 If you see this we are all set!
+
+## In the R console, let's install the languageserver package {background-image="figs/vs_code_r_languageserver.jpg"}
+
+## Now to Quarto {background-color="black"}
+
+:::: {.columns}
+::: {.column width="30%"}
+- Create a new Quarto (.qmd) file by navigating to View > Command Palette...
+:::
+::: {.column width="70%"}
+![](figs/vs_code_quarto_doc.jpg)
+:::
+::::
+
+## {background-color="black"}
+
+> Save this file in the project folder as `LDSF_UK-PACT.qmd`
+> Open in the editor!
+
+And edit the top part to look like this:
+
+![This is what is called the "yaml" part of the document.](figs/vs_code_quarto_yaml.jpg)
