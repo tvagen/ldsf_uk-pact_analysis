@@ -1,56 +1,82 @@
 ---
-title: "LDSF data analysis, UK-PACT"
+title: "LDSF UK-PACT data analysis"
 format: html
 ---
 
 ## Introduction
 This document is a notebook with documentation and code for the LDSF data analysis workshop in Voi (July 9 to 12, 2024).
 
-## Load the libraries we will use 
+## Load the packages that we will use
 ```{r}
-library(dplyr)
+library(dplyr) #for grouping 
 library(ggplot2)
 library(leaflet)
+library(sf)
 ```
 
-## Load data
-
+## Load the LDSF data into R
 ```{r}
-table_ldsf <- read.csv("data/ldsf/ldsf_data_uk-pact.csv")
+table_ldsf <- read.csv("data/ldsf_data_uk-pact.csv")
+head(table_ldsf)
+names(table_ldsf)
 ```
 
-## Data exploration
+## Grouping and summarising the data using dplyr
 
-1. We use dplyr to do some simple grouping and to summarise the data.
-2. We pass the summarised data into ggplot2 to create a plot.
-
-### Number of plots by site
-```{r}
-table_ldsf |>
-    group_by(site) |>
-    summarise(n = n())
-```
+1. We group the data and summarise using _dplyr_, then pass the result into ggplot to create a simple barchart.
 
 ```{r}
 table_ldsf |>
     group_by(site) |>
-    summarise(n = n()) |>
+    summarise(count = n()) |>
     ggplot() +
-    geom_col(aes(x = site, y = n, fill=site))
+    geom_col(aes(x = site, y = count, fill = site)) + 
+    #theme(text = element_text(size=24)) +
+    ggtitle("Number of plots sampled per site") +
+    theme(legend.position = "false")
+
+ggsave("plots/plots_per_site.png")
 ```
 
-## Erosion
+2. Let's explore the vegetation structure data
+
 ```{r}
 table_ldsf |>
-    group_by(site, cluster) |>
-    summarise(erosion = sum(severeero)) |>
+    #filter(site == "chawia") |>
+    group_by(site, vegstructure) |>
+    summarise(count = n()) |>
     ggplot() +
-    geom_boxplot(aes(x = site, y = erosion)
+    geom_col(aes(x=site, y=count, fill=vegstructure)) +
+    ggtitle("Vegetation structure classes by site") +
+    theme_bw()
+
+ggsave("plots/veg_structure_site.png")
 ```
 
+3. Let's create a map of the LDSF sites using Leaflet
 
 ```{r}
 table_ldsf |>
     leaflet() |>
-    addTiles()
+    addTiles(urlTemplate = "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}") |>
+    addCircleMarkers(lng = ~longitude, lat = ~latitude, radius = 1, group = "LDSF")
+
+```
+
+Link to custom tiles:
+https://leaflet-extras.github.io/leaflet-providers/preview/
+
+## Working with shapefiles...
+
+```{r}
+ken_admin <- st_read("data/shp/ken_adm_iebc_20191031_shp/ken_admbnda_adm2_iebc_20191031.shp")
+```
+- Let's add the map to leaflet
+
+```{r}
+ken_admin |>
+    filter(ADM2_EN == "Taveta" | ADM2_EN == "Voi" | ADM2_EN == "Mwatate") |>
+    leaflet() |>
+    addTiles() |>
+    addPolygons(fill = TRUE, fillColor = "red", fillOpacity = 0.3, weight = 0.5, popup = ~ADM2_EN, label = ~ADM2_EN, labelOptions = labelOptions(noHide = TRUE, direction="left"))
 ```
