@@ -48,3 +48,9 @@ table_ldsf |>
     geom_boxplot(aes(x = site, y = erosion)
 ```
 
+
+```{r}
+table_ldsf |>
+    leaflet() |>
+    addTiles()
+```
