@@ -44,3 +44,140 @@ We will cover a number of topics, including:
 - Statistical analysis of LDSF data using mixed-effects models
 
 All of the above exercises will be hands-on and conducted in Quarto (see above), which is a great tool for reproducible research. Quarto can be used for report writing, data analysis, and creating presentations.
+
+
+
+# Introduction to GIT
+
+## Creating a GitHub Account
+
+Copy this URL https://github.com to your browser to create an account, if you already have a GitHub, or Bitbucket account you can use it to log in or sign up alternatively use your Google or Twitter account.
+
+## Create a Repository in GitHub
+
+Once we have an account, we can create a repository in GitHub. We can create a new repository or import one to get started. After creating/importing a project you can use any of the following options.
+To create a repository click on the "New" button next to the repository list on the left side of the screen.
+
+## Generating a new SSH key pair
+
+If using a Mac OS or Ubuntu machine, open a terminal, for Windows open Git Bash.
+
+Generate a new ED25519 SSH key pair:
+
+~~~
+ssh-keygen -t ed25519 -C "email@example.com"
+~~~
+
+Or use RSA:
+
+~~~
+ssh-keygen -o -t rsa -b 4096 -C "email@example.com"
+~~~
+
+Next, you will be prompted to input a file path to save your SSH key pair. If you don’t have an SSH key pair and aren’t generating a deploy key, use the suggested path by pressing “Enter”. This is good practice as you will not be required to do further configurations for the SSH client.
+
+Once the path is decided, you will be prompted to input a password to secure your new SSH key pair. It’s a best practice to use a password, but it’s not required and you can skip creating it by pressing “Enter” twice.
+
+__NB:__ If you want to add or change the password of your SSH key pair, you can use the -p flag:
+
+~~~
+	ssh-keygen -p -o -f <keyname>
+~~~
+
+## Adding an SSH KEY to a GitHub account
+
+You can opt to open the file and copy all of its contents to GitHub or copy the public key to the clipboard by using any of the commands below depending on your system.
+
+__macOS:__
+
+~~~
+ 	pbcopy < ~/.ssh/id_ed25519.pub
+~~~
+
+__WSL / GNU/Linux (requires the xclip package):__
+
+~~~
+	xclip -sel clip < ~/.ssh/id_ed25519.pub
+~~~
+
+__Git Bash on Windows:__
+
+~~~
+	cat ~/.ssh/id_ed25519.pub | clip
+~~~
+
+For the first option; open the file using any text editor and paste it to the GitHub SSH section as shown below(I use Ubuntu so I will demonstrate using the same):
+
+~~~
+	vim ~/.ssh/id_ed25519.pub
+~~~
+
+the file looks similar to this:
+
+~~~
+    ssh-ed25519 ABHW92CidDJDNJFNSJDJSKDNFKJNDSF/uidsh/djsfndisafhudj0 email.example.com
+~~~
+
+now on your GitHub account in your browser click on your profile in the top-right corner as shown below:
+
+![](profile_sect.png)
+
+click on the dropdown arrow and select settings:
+
+![](profile_dropdwn.png){width="50%"}
+
+On the page that loads next, click on the SSH Keys section on the left side of the screen:
+
+![](sshKeys.png){width="50%"}
+
+This will give us screens like the ones below where we can paste our SSH Key:
+
+![](addsshbtn.png){width="50%"}
+
+Click the _"New SSH Key"_ Button to get the screen below;
+
+![](pastessh.png){width="50%"}
+
+Provide a descriptive title, and click on the addkey button below it. Now with your SSH KEY set up you can proceed to add data to your repository using any of the scenarios below.
+
+## Command line instructions
+
+GitHub allows one to add existing folders and files. In order to acheve this, we need to make additional configurations. Firstly, we will configure git globally in our computer. Run the commands below to achieve this;
+
+~~~
+    git config --global user.name "First Name Last Name"
+    git config --global user.email "email@example.com"
+~~~
+
+Next we are going to clone the repository we created in the previous step(Create a Repository in GitHub);
+
+~~~
+    git clone git@gitlab.com:a_njogu/samples.git
+    cd samples
+    touch README.md
+    git add README.md
+    git commit -m "add README"
+    git push -u origin master
+~~~
+
+If we are to push an existing folder to github we can use the following command;
+
+~~~
+    cd existing_folder
+    git init
+    git remote add origin git@gitlab.com:a_njogu/samples.git
+    git add .
+    git commit -m "Initial commit"
+    git push -u origin master
+~~~
+
+We also have an option to push an existing Git repository. To achieve this, we need to use the following command;
+
+
+~~~
+    cd existing_repo
+    git remote rename origin old-origin
+    git remote add origin git@gitlab.com:a_njogu/samples.git
+    git push -u origin --all
+    git push -u origin --tags
+~~~
