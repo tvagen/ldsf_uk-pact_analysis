@@ -150,19 +150,19 @@ now on your GitHub account in your browser click on your profile in the top-righ
 
 click on the dropdown arrow and select settings:
 
-![](figs/profile_dropdwn.png){width="50%"}
+![](figs/profile_dropdwn.png)
 
 On the page that loads next, click on the SSH Keys section on the left side of the screen:
 
-![](figs/sshKeys.png){width="50%"}
+![](figs/sshKeys.png)
 
 This will give us screens like the ones below where we can paste our SSH Key:
 
-![](figs/addsshbtn.png){width="50%"}
+![](figs/addsshbtn.png)
 
 Click the _"New SSH Key"_ Button to get the screen below;
 
-![](figs/pastessh.png){width="50%"}
+![](figs/pastessh.png)
 
 Provide a descriptive title, and click on the addkey button below it. Now with your SSH KEY set up you can proceed to add data to your repository using any of the scenarios below.
 
