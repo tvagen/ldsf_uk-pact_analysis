@@ -132,11 +132,11 @@ On the page that loads next, click on the SSH Keys section on the left side of t
 
 This will give us screens like the ones below where we can paste our SSH Key:
 
-![](addsshbtn.png){width="50%"}
+![](figs/addsshbtn.png){width="50%"}
 
 Click the _"New SSH Key"_ Button to get the screen below;
 
-![](pastessh.png){width="50%"}
+![](figs/pastessh.png){width="50%"}
 
 Provide a descriptive title, and click on the addkey button below it. Now with your SSH KEY set up you can proceed to add data to your repository using any of the scenarios below.
 
