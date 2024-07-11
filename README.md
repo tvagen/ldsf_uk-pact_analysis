@@ -49,9 +49,32 @@ All of the above exercises will be hands-on and conducted in Quarto (see above),
 
 # Introduction to GIT
 
+## Installing GIT
+
+For Mac and Linux users git is often preinstalled, but if it is not, one can install it using the steps below;
+
+
+For Windows:
+~~~
+* Insert the URL "[https://git-scm.com/download/win](https://git-scm.com/download/win)" in your browser and select either 32 bit or 64 bit under "Standalone Installer" section.
+* After downloading the installer file, run the installer wizard following the instructions(ensure you leave the installer sections as default).
+* Once the installer has been installed successfully, it will load a blue screen with a manual on git
+~~~
+
+For Mac run:
+~~~
+	brew install git
+~~~
+
+For Linux run:
+~~~
+	sudo apt install git
+~~~
+
+
 ## Creating a GitHub Account
 
-Copy this URL https://github.com to your browser to create an account, if you already have a GitHub, or Bitbucket account you can use it to log in or sign up alternatively use your Google or Twitter account.
+Copy this URL _https://github.com_ to your browser to create an account, if you already have a GitHub, or Bitbucket account you can use it to log in or sign up alternatively use your Google or Twitter account.
 
 ## Create a Repository in GitHub
 
@@ -60,7 +83,7 @@ To create a repository click on the "New" button next to the repository list on 
 
 ## Generating a new SSH key pair
 
-If using a Mac OS or Ubuntu machine, open a terminal, for Windows open Git Bash.
+If using a Mac OS or Ubuntu machine, open a terminal, for Windows open Git Bash or command line(cmd).
 
 Generate a new ED25519 SSH key pair:
 
@@ -88,6 +111,15 @@ __NB:__ If you want to add or change the password of your SSH key pair, you can 
 
 You can opt to open the file and copy all of its contents to GitHub or copy the public key to the clipboard by using any of the commands below depending on your system.
 
+
+__Git Bash on Windows:__
+
+~~~
+	* notepad C:\Users\<your_computer_user>/.ssh/id_ed25519.pub
+	* copy all the contents of the notepad document that opens i.e
+	"ssh-ed25519 AAAAC3NzaC1lZDI1NTISYAAAIPBnygRvaPnjVogKEIolWB6CSElxU7EOyauhbmj37/mS email@email.com"
+~~~
+
 __macOS:__
 
 ~~~
@@ -98,12 +130,6 @@ __WSL / GNU/Linux (requires the xclip package):__
 
 ~~~
 	xclip -sel clip < ~/.ssh/id_ed25519.pub
-~~~
-
-__Git Bash on Windows:__
-
-~~~
-	cat ~/.ssh/id_ed25519.pub | clip
 ~~~
 
 For the first option; open the file using any text editor and paste it to the GitHub SSH section as shown below(I use Ubuntu so I will demonstrate using the same):
@@ -142,14 +168,29 @@ Provide a descriptive title, and click on the addkey button below it. Now with y
 
 ## Command line instructions
 
-GitHub allows one to add existing folders and files. In order to acheve this, we need to make additional configurations. Firstly, we will configure git globally in our computer. Run the commands below to achieve this;
+After a successful git installation on our laptop and a connection to the github.com account, restart your VScode application.
+After restarting our VScode  we need to go to the Terminal section under VScode. 
+Once we have our terminal up, let's make some configurations as described below;
+Firstly, we will configure git globally on our computer. Run the commands below to achieve this;
 
 ~~~
-    git config --global user.name "First Name Last Name"
-    git config --global user.email "email@example.com"
+	git config --global user.name "First Name Last Name"
+	git config --global user.email "email@example.com"
 ~~~
 
-Next we are going to clone the repository we created in the previous step(Create a Repository in GitHub);
+
+If we are to push an existing folder to GitHub we can use the following command;
+
+~~~
+    # open your project on VSCode, and run the commands bewlow in the terminal 
+    git init
+    git remote add origin git@gitlab.com:a_njogu/samples.git
+    git add .
+    git commit -m "Initial commit"
+    git push -u origin master
+~~~
+
+Next, we are going to clone the repository we created in the previous step(Create a Repository in GitHub);
 
 ~~~
     git clone git@gitlab.com:a_njogu/samples.git
@@ -159,18 +200,6 @@ Next we are going to clone the repository we created in the previous step(Create
     git commit -m "add README"
     git push -u origin master
 ~~~
-
-If we are to push an existing folder to github we can use the following command;
-
-~~~
-    cd existing_folder
-    git init
-    git remote add origin git@gitlab.com:a_njogu/samples.git
-    git add .
-    git commit -m "Initial commit"
-    git push -u origin master
-~~~
-
 We also have an option to push an existing Git repository. To achieve this, we need to use the following command;
 
 
