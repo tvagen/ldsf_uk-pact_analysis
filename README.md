@@ -120,15 +120,15 @@ the file looks similar to this:
 
 now on your GitHub account in your browser click on your profile in the top-right corner as shown below:
 
-![](profile_sect.png)
+![](figs/profile_sect.png)
 
 click on the dropdown arrow and select settings:
 
-![](profile_dropdwn.png){width="50%"}
+![](figs/profile_dropdwn.png){width="50%"}
 
 On the page that loads next, click on the SSH Keys section on the left side of the screen:
 
-![](sshKeys.png){width="50%"}
+![](figs/sshKeys.png){width="50%"}
 
 This will give us screens like the ones below where we can paste our SSH Key:
 
